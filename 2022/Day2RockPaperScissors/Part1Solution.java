@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Solution {
+public class Part1Solution {
     public static void main(String[] args) {
         File inputs = new File("inputs2.txt");
         try {
