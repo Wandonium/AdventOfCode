@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HeaviestElf {
@@ -7,25 +8,21 @@ public class HeaviestElf {
         File inputs = new File("inputs2.txt");
         try {
             Scanner reader = new Scanner(inputs);
-            int count = 1;
             int currentTotal = 0;
-            int largestTotal = currentTotal;
-            int largestTotalIndex = count;
+            ArrayList<Integer> totals = new ArrayList();
             while(reader.hasNextLine()) {
                 String input = reader.nextLine();
                 if(input.isEmpty()) {
-                    if(currentTotal > largestTotal) {
-                        largestTotal = currentTotal;
-                        largestTotalIndex = count;
-                    }
+                    totals.add(currentTotal);
                     currentTotal = 0;
-                    count++;
                 } else {
                     int num = Integer.parseInt(input);
                     currentTotal += num;
                 }
             }
-            System.out.println("LargestTotal: " + largestTotal);
+            totals.sort((a, b) -> b - a);
+            System.out.println("LargestTotal: " + totals.get(0));
+            System.out.println("Largest total of heaviest 3: " + (totals.get(0) + totals.get(1) + totals.get(2)));
         } catch (FileNotFoundException e) {
             System.out.println("Inputs file not found!");
             e.printStackTrace();
