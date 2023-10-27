@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HeaviestElf {
+public class Solution {
     public static void main(String[] args) {
         File inputs = new File("inputs2.txt");
         try {
@@ -22,7 +22,7 @@ public class HeaviestElf {
             }
             totals.sort((a, b) -> b - a);
             System.out.println("LargestTotal: " + totals.get(0));
-            System.out.println("Largest total of heaviest 3: " + (totals.get(0) + totals.get(1) + totals.get(2)));
+            System.out.println("Total of heaviest 3: " + (totals.get(0) + totals.get(1) + totals.get(2)));
         } catch (FileNotFoundException e) {
             System.out.println("Inputs file not found!");
             e.printStackTrace();
